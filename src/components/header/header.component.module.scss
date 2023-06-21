@@ -1,0 +1,121 @@
+@import '../../css/variables.scss';
+
+.Header {
+  flex-basis: $header-height;
+  flex-shrink: 0;
+  font-size: 1.4em;
+
+  display: flex;
+
+  // background-color: $primary-color-darker;
+  color: #fff;
+
+  > div {
+    flex: 1;
+  }
+
+  .left {
+    display: flex;
+    align-items: center;
+  }
+
+  .right {
+    padding: 0.9em 1.3em;
+    font-size: 0.75em;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    > div {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .logo {
+    font-weight: $font-weight-light;
+    letter-spacing: 1px;
+  
+    span {
+      font-weight: $font-weight-bold;
+    }
+  }
+  
+  .notifications {
+    font-size: 1.5em;
+  
+    .notificationsLink {
+      height: 100%;
+      padding: 0 1.5em;
+      
+      display: flex;
+      align-items: center; 
+      
+      color: inherit;
+    }
+  }
+  
+  .account {
+    user-select: none;
+
+    .accountInner {
+      height: 100%;
+      position: relative;
+
+      display: flex;
+      align-items: center;
+
+      >* {
+        z-index: 1;
+      }
+
+      .userIcon {
+        font-size: 1.5em;
+        display: inline-block;
+        margin-right: 0.5em;
+    
+        transform: translateY(-2px);
+      }
+
+      &.highlight::before {
+        $width: 120%;
+        $height: 60%;
+        content: '';
+        position: absolute;
+        width: $width;
+        height: $height;
+        top: (100% - $height) / 2;
+        left: -($width - 100%) / 2;
+        z-index: 0;
+
+        border-radius: 4px;
+        background-color: $primary-color-darkest;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.balance {
+  float: right;
+}
+
+.blink_me {
+  animation: blinker 0.5s linear;
+  animation-iteration-count: 2;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0.1;
+  }
+}

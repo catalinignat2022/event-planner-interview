@@ -1,0 +1,15 @@
+@import '../../css/variables.scss';
+
+.bg {
+  position: absolute;
+  width: 100%;
+  height: 500px;
+  background-color: red;
+  border-radius: 50%;
+  left: -250px;
+  background: linear-gradient(to right, #50bcee, #F0F8FF);
+}
+
+.event {
+  padding: 20px;
+}

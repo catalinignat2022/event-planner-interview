@@ -1,0 +1,28 @@
+@import '~antd/dist/antd.variable.min.css';
+@import './css/antd-overrides.scss';
+@import './css/_custom.scss';
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #eef0f3;
+  font-family: Rubik, sans-serif;
+  //color: #eef0f3
+}
+
+.app {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
