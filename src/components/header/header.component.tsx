@@ -3,15 +3,20 @@ import { observer } from "mobx-react";
 import styles from "./header.component.module.scss";
 import { Row, Col } from "antd";
 import { Switch } from 'antd';
+import { useServices } from "../../hooks/use-services.hook";
 
 export const HeaderComponent: React.FC = observer(
   () => {
+    const services = useServices();
+
+    //pentru afișarea switch-ului pentru schimbarea temei
     const renderChangeThemeRadio = () => {
       return (<div>
-      <Switch defaultChecked onChange={onChange} />
+      <Switch  onChange={onChange} />
     </div>)
     };
 
+    // pentru partea dreaptă a header-ului
     const rightSide = () => {
         return (
           <div className={styles.right}>
@@ -22,8 +27,9 @@ export const HeaderComponent: React.FC = observer(
         );
     };
 
+    //gestionarea evenimentului onChange al switch-ului
     const onChange = (checked: boolean) => {
-      console.log(`switch to ${checked}`);
+      services.eventPlanner.theme = checked ? 'dark' : 'light';
     };
   
     return (

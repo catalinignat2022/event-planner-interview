@@ -1,24 +1,29 @@
 import React from "react";
 import { observer } from "mobx-react";
 import { Col, Row } from "antd";
-import { useServices } from "../../hooks/use-services.hook";
 import styles from "./user-events.component.module.scss";
 import Layout, { Content, Header } from "antd/lib/layout/layout";
 import { IEvent } from "../../services/event/event-planner-response.interface";
+import moment from 'moment';
 
 interface UserEventsComponentProps {
   params: IEvent;
 }
 
 const UserEventsComponent: React.FC<UserEventsComponentProps> = observer((props) => {
-  const services = useServices();
-  
+
+  const getEventDate = (date: Date) => {
+    const startDate = moment(date);
+    const formattedStartDate = startDate.format('MMMM, Do | HH:mm');
+    return formattedStartDate;
+  }
+
   const content = () => {
     return (
       <Layout>
         <Layout>
           <Header style={ { color: "#000", fontSize: "1em" } }>
-            Your next event:
+            <span className="custom-text">Your next event:</span>
           </Header>
           <Content>
             <Row>
@@ -46,7 +51,7 @@ const UserEventsComponent: React.FC<UserEventsComponentProps> = observer((props)
                     </Col>
 
                     <Col span={ 24 } style={ { color: "#000", float: "right", textAlign: "right" } }>
-                      <span style={{ backgroundColor: "gray", padding: "5px", borderRadius: "5px", color: "#fff" }}>June 24th | 16:30</span>
+                      <span style={{ backgroundColor: "gray", padding: "5px", borderRadius: "5px", color: "#fff" }}>{ getEventDate(props.params.startDate) }</span>
                     </Col>
                     
                   </Row>

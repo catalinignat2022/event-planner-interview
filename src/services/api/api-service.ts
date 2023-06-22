@@ -1,11 +1,7 @@
 import { ServiceBase } from "../service-base";
-import { Api } from "./api";
 import { IApiService } from "./api-service.interface";
-import { IApi } from "./api.interface";
 
 export class ApiService extends ServiceBase implements IApiService {
-
-    private _api: IApi | null = null;
 
     buildFullUrl(path: string): string {
         const API_VERSION: string = `/`;
@@ -15,13 +11,6 @@ export class ApiService extends ServiceBase implements IApiService {
             origin = origin.substr(0, origin.length - 1);
         }
         return origin + path;
-    }
-
-    loadSession(): IApi {
-        if(!this._api) {
-            this._api = new Api(this.services);
-        }
-        return this._api;
     }
     
 }

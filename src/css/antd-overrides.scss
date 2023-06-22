@@ -16,3 +16,28 @@ body {
 .ant-layout-header {
   background: none;
 }
+
+
+/* Light Theme */
+.app.light-theme {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+/* Dark Theme */
+.app.dark-theme {
+  background-color: #333;
+  color: #f0f0f0;
+
+  .ant-layout {
+    background: #000;
+  }
+
+  .custom-text {
+    color: #fff!important;
+  }
+
+  body {
+    background-color: #000!important;
+  }
+}

@@ -12,8 +12,8 @@ export abstract class ApiBase {
 
     }
 
-    protected async _fetchData<TData>(method: HttpVerb, path: string, options?: IFetchOptions, externalUrl?: boolean): Promise<any> {
-        const url = externalUrl ? path : this.services.api.buildFullUrl(path);
+    protected async _fetchData<TData>(method: HttpVerb, path: string, options?: IFetchOptions): Promise<any> {
+        const url = this.services.api.buildFullUrl(path);
         const headers = {
             'Content-Type': 'application/json'
         }

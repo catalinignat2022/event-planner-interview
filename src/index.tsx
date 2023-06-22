@@ -3,17 +3,9 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.scss";
 import App from "./App";
-
 import reportWebVitals from "./reportWebVitals";
 import { ServiceFactory } from "./services/service.factory";
 import { ServiceFactoryContext } from "./services/service-factory-context";
-import { ConfigProvider } from "antd";
-
-ConfigProvider.config({
-  theme: {
-    primaryColor: "#4F71DF"
-  }
-});
 
 const getPage = () => {
   return (
